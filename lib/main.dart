@@ -86,7 +86,7 @@ class Editor extends StatelessWidget {
   }
 }
 
-class ListaTransferencias extends StatefulWidget{
+class ListaTransferencias extends StatefulWidget {
   final List<Transferencia> _transferencias = List();
 
   @override
@@ -110,16 +110,19 @@ class ListaTransferenciasState extends State<ListaTransferencias> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add), onPressed: () {
-        final Future<Transferencia> future = Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return FormularioTransferencia();
-        }));
-        future.then((transferenciaRecebida) {
-          debugPrint('chegou no then do future');
-          debugPrint('$transferenciaRecebida');
-          widget._transferencias.add(transferenciaRecebida);
-        });
-      },),
+        child: Icon(Icons.add),
+        onPressed: () {
+          final Future<Transferencia> future =
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return FormularioTransferencia();
+          }));
+          future.then((transferenciaRecebida) {
+            debugPrint('chegou no then do future');
+            debugPrint('$transferenciaRecebida');
+            widget._transferencias.add(transferenciaRecebida);
+          });
+        },
+      ),
     );
   }
 }
